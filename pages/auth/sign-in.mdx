@@ -1,0 +1,73 @@
+# Sign-In User API
+
+This API endpoint allows users to sign in to the system by providing their credentials.
+
+## Endpoint
+
+**POST** `/api/users/sign-in`
+
+## Payload Structure
+
+Below is the structure of the JSON payload required for signing in a user:
+
+| **Field**  | **Type** | **Description**                      |
+| ---------- | -------- | ------------------------------------ |
+| `email`    | `string` | The email address of the user.       |
+| `password` | `string` | The password for the user's account. |
+
+## Example Request Payload
+
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "securePassword123"
+}
+```
+
+## Response Structure
+
+The following table outlines the structure of the response after a successful sign-in:
+
+| **Field** | **Type** | **Description**                                     |
+| --------- | -------- | --------------------------------------------------- |
+| `token`   | `string` | A JWT token for authenticating subsequent requests. |
+| `user`    | `object` | An object containing basic user information.        |
+
+### User Object Structure
+
+| **Field**   | **Type** | **Description**                          |
+| ----------- | -------- | ---------------------------------------- |
+| `id`        | `string` | Unique identifier for the user.          |
+| `username`  | `string` | The username of the signed-in user.      |
+| `email`     | `string` | The email address of the signed-in user. |
+| `firstName` | `string` | The first name of the user.              |
+| `lastName`  | `string` | The last name of the user.               |
+
+## Example Response
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "12345",
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "firstName": "John",
+    "lastName": "Doe"
+  }
+}
+```
+
+## Argument Types
+
+Here is a table summarizing the argument types for better clarity:
+
+| **Argument** | **Type** | **Required** | **Description**                      |
+| ------------ | -------- | ------------ | ------------------------------------ |
+| `email`      | `string` | Yes          | The email address of the user.       |
+| `password`   | `string` | Yes          | The password for the user's account. |
+
+## Notes
+
+- The email and password must match an existing account in the system.
+- A JWT token is returned upon successful authentication, which should be used for authorized requests.

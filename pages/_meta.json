@@ -1,0 +1,14 @@
+{
+  "index": "Introduction Api Docs",
+  "auth": "Auth Module",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://github.com/shahjalal-bu",
+    "newWindow": true
+  }
+}

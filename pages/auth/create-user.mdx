@@ -1,0 +1,79 @@
+# Create a User API
+
+This API endpoint allows you to create a new user in the system.
+
+## Endpoint
+
+**POST** `/api/users`
+
+## Payload Structure
+
+Below is the structure of the JSON payload required for creating a new user:
+
+| **Field**   | **Type** | **Description**                                        |
+| ----------- | -------- | ------------------------------------------------------ |
+| `username`  | `string` | The unique username for the user.                      |
+| `email`     | `string` | The user's email address.                              |
+| `password`  | `string` | The password for the new account.                      |
+| `firstName` | `string` | The user's first name.                                 |
+| `lastName`  | `string` | The user's last name.                                  |
+| `role`      | `string` | The role assigned to the user (e.g., `admin`, `user`). |
+
+## Example Request Payload
+
+```json copy filename="create-user.json"
+{
+  "username": "john_doe",
+  "email": "john.doe@example.com",
+  "password": "securePassword123",
+  "firstName": "John",
+  "lastName": "Doe",
+  "role": "user"
+}
+```
+
+## Response Structure
+
+The following table outlines the structure of the response after a successful user creation:
+
+| **Field**   | **Type** | **Description**                               |
+| ----------- | -------- | --------------------------------------------- |
+| `id`        | `string` | Unique identifier for the newly created user. |
+| `username`  | `string` | The username of the created user.             |
+| `email`     | `string` | The email of the created user.                |
+| `firstName` | `string` | The first name of the user.                   |
+| `lastName`  | `string` | The last name of the user.                    |
+| `role`      | `string` | The role assigned to the user.                |
+| `createdAt` | `string` | Timestamp of when the user was created.       |
+
+## Example Response
+
+```json
+{
+  "id": "12345",
+  "username": "john_doe",
+  "email": "john.doe@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "role": "user",
+  "createdAt": "2024-11-16T12:34:56Z"
+}
+```
+
+## Argument Types
+
+Here is a table summarizing the argument types for better clarity:
+
+| **Argument** | **Type** | **Required** | **Description**                     |
+| ------------ | -------- | ------------ | ----------------------------------- |
+| `username`   | `string` | Yes          | The unique identifier for the user. |
+| `email`      | `string` | Yes          | The user's email.                   |
+| `password`   | `string` | Yes          | Password for the new account.       |
+| `firstName`  | `string` | No           | The user's first name.              |
+| `lastName`   | `string` | No           | The user's last name.               |
+| `role`       | `string` | No           | The role to assign the user.        |
+
+## Notes
+
+- Ensure that passwords are strong and follow security guidelines.
+- Fields like `email` must be unique, and validation is performed on the server side.
